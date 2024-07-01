@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000', // Update this to match the frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  //credentials: true, // Allow cookies to be sent
+  credentials: true, // Allow cookies to be sent
 }));
 
 // MongoDB connection
