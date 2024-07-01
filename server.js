@@ -9,11 +9,22 @@ const router = express.Router();
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: 'https://authfrakm.netlify.app', // Update this to match the frontend URL
- // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Allow cookies to be sent
-}));
+app.use(cors());
+
+// const allowedOrigins = ['https://authfrakm.netlify.app', 'http://localhost:3000'];
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like mobile apps or curl requests)
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.indexOf(origin) === -1) {
+//       const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+//       return callback(new Error(msg), false);
+//     }
+//     return callback(null, true);
+//   },
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // Allow cookies to be sent
+// }));
 
 // MongoDB connection
 mongoose.connect('mongodb+srv://akm:2132001akm@akm.d9cx4ad.mongodb.net/?retryWrites=true&w=majority&appName=AKM', {
