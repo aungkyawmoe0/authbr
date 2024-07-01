@@ -9,7 +9,11 @@ const router = express.Router();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Update this to match the frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  //credentials: true, // Allow cookies to be sent
+}));
 
 // MongoDB connection
 mongoose.connect('mongodb+srv://akm:2132001akm@akm.d9cx4ad.mongodb.net/?retryWrites=true&w=majority&appName=AKM', {
